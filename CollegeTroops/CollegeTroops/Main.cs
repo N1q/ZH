@@ -95,14 +95,6 @@ namespace CollegeTroops
                 ds.Add(d);
             }
             r.Close();
-            //t.name = r[1];
-            //t.sex = r[2];
-            //t.age = r[3];
-            //t.idFamStat = r[4];
-            //t.kids = r[5];
-            //t.idDuty = r[6];
-            //t.idUchStep = r[7];
-            //t.oklad = r[8];
             DataTable dt = new DataTable();
             dt.Columns.Add("Код");
             dt.Columns.Add("ФИО");
@@ -170,7 +162,7 @@ namespace CollegeTroops
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            printDialog1.ShowDialog();
+            printPreviewDialog1.ShowDialog();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -186,6 +178,21 @@ namespace CollegeTroops
         {
             if (c.State != ConnectionState.Open)
                 c.Open();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string res = "\tСписок сотрудиков:\n";
+            for (int i = 0; i < dgv.RowCount; i++)
+                res += "\n\n\tСотрудник\nФИО: " + dgv.Rows[i].Cells[1].Value.ToString() +
+                    "\nПол: " + dgv.Rows[i].Cells[2].Value.ToString() +
+                    "\nВозраст: " + dgv.Rows[i].Cells[3].Value.ToString() +
+                    "\nСемейное положение: " + dgv.Rows[i].Cells[4].Value.ToString() +
+                    "\nЕсть дети: " + dgv.Rows[i].Cells[5].Value.ToString() +
+                    "\nДолжность: " + dgv.Rows[i].Cells[6].Value.ToString() +
+                    "\nУченая степень: " + dgv.Rows[i].Cells[7].Value.ToString() +
+                    "\nОклад: " + dgv.Rows[i].Cells[8].Value.ToString();
+            e.Graphics.DrawString(res, DefaultFont, Brushes.Black, 50, 50);
         }
     }
     public class Man
