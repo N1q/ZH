@@ -44,7 +44,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cb_knowledge = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.n_oklad = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.n_age)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n_oklad)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_name
@@ -57,21 +60,23 @@
             // 
             // b_cancel
             // 
-            this.b_cancel.Location = new System.Drawing.Point(15, 312);
+            this.b_cancel.Location = new System.Drawing.Point(15, 361);
             this.b_cancel.Name = "b_cancel";
             this.b_cancel.Size = new System.Drawing.Size(68, 24);
             this.b_cancel.TabIndex = 26;
             this.b_cancel.Text = "Отмена";
             this.b_cancel.UseVisualStyleBackColor = true;
+            this.b_cancel.Click += new System.EventHandler(this.b_cancel_Click);
             // 
             // b_done
             // 
-            this.b_done.Location = new System.Drawing.Point(201, 312);
+            this.b_done.Location = new System.Drawing.Point(201, 361);
             this.b_done.Name = "b_done";
             this.b_done.Size = new System.Drawing.Size(68, 24);
             this.b_done.TabIndex = 25;
             this.b_done.Text = "Готово";
             this.b_done.UseVisualStyleBackColor = true;
+            this.b_done.Click += new System.EventHandler(this.b_done_Click);
             // 
             // label2
             // 
@@ -192,11 +197,34 @@
             this.label6.TabIndex = 36;
             this.label6.Text = "Ученая степень";
             // 
+            // n_oklad
+            // 
+            this.n_oklad.Location = new System.Drawing.Point(68, 301);
+            this.n_oklad.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.n_oklad.Name = "n_oklad";
+            this.n_oklad.Size = new System.Drawing.Size(201, 22);
+            this.n_oklad.TabIndex = 38;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 301);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 17);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Оклад";
+            // 
             // newTroop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 350);
+            this.ClientSize = new System.Drawing.Size(287, 397);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.n_oklad);
             this.Controls.Add(this.cb_knowledge);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cb_duty);
@@ -215,7 +243,9 @@
             this.Controls.Add(this.title);
             this.Name = "newTroop";
             this.Text = "newTroop";
+            this.Load += new System.EventHandler(this.newTroop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.n_age)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n_oklad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,5 +269,7 @@
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_knowledge;
         public System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown n_oklad;
+        public System.Windows.Forms.Label label7;
     }
 }
